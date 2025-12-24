@@ -165,13 +165,60 @@ header {
         .pillar p { opacity: 0.75; line-height: 1.8; }
 
         /* --- FOOTER --- */
-        footer { background: var(--navy); color: var(--white); padding: 100px 0 40px; }
-        .f-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 60px; }
-        .f-col h4 { color: var(--secondary); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 30px; font-weight: 800; }
-        .f-col li { font-size: 0.85rem; margin-bottom: 12px; opacity: 0.6; cursor: pointer; transition: 0.3s; }
-        .f-col li:hover { opacity: 1; color: var(--aqua); transform: translateX(5px); }
-        .f-bottom { border-top: 1.5px solid rgba(255,255,255,0.05); padding-top: 40px; display: flex; justify-content: space-between; opacity: 0.4; font-size: 0.7rem; }
+        /* --- FIXED MASTER FOOTER STYLING --- */
+footer { 
+    background: var(--navy); 
+    color: #fff; 
+    padding: 100px 0 60px; 
+    border-top: 5px solid var(--aqua); 
+}
 
+/* This creates the 4 separate columns across the page */
+.f-grid { 
+    display: grid; 
+    grid-template-columns: 2fr 1fr 1fr 1.2fr; 
+    gap: 60px; 
+}
+
+.f-logo-side img { 
+    height: 80px; /* Big enough but fits the column */
+    width: auto; 
+    margin-bottom: 30px; 
+}
+
+.f-list-head { 
+    color: var(--secondary); 
+    letter-spacing: 2px; 
+    font-size: 0.85rem; 
+    font-weight: 800; 
+    display: block; 
+    margin-bottom: 30px; 
+}
+
+.f-link-list { list-style: none; padding: 0; }
+.f-link-list li { 
+    margin-bottom: 15px; 
+    opacity: 0.6; 
+    font-size: 0.95rem; 
+    cursor: pointer; 
+    transition: 0.3s; 
+}
+
+.f-link-list li:hover { 
+    opacity: 1; 
+    color: var(--aqua); 
+    padding-left: 8px; 
+}
+
+.f-meta { 
+    border-top: 1.5px solid rgba(255,255,255,0.05); 
+    padding-top: 40px; 
+    margin-top: 80px; 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 0.75rem; 
+    opacity: 0.4; 
+}
         /* --- MOBILE REFINEMENTS --- */
         @media (max-width: 1000px) {
             .hero h1 { font-size: 2.8rem; }
@@ -179,6 +226,8 @@ header {
             .step-id-area, .step-nav { display: none; }
             nav { display: none; }
             .tab-txt { padding: 40px; }
+            .f-grid { grid-template-columns: 1fr; }
+            .f-logo-side { text-align: center; }
         }
     </style>
 </head>
@@ -353,27 +402,27 @@ header {
     </section>
 
     <footer>
-        <div class="row f-grid">
-            <div class="f-col">
-                <div class="f-col">
-    <!-- Using the PNG logo to replace the text header -->
-    <a href="/">
-        <img src="White.png" alt="Relax Outback Logo" style="height: 70px; width: auto; margin-bottom: 20px; display: block;">
-    </a>
-    
-    <p style="opacity: 0.4; font-size: 0.8rem;">
-        Premier In-Ground Solutions<br>
-        Bettendorf & The Quad Cities Area<br>
-        (XXX) XXX-XXXX
-    </p>
-                <div style="display:flex; gap:15px; margin-top:25px; font-size:1.3rem;">
+    <div class="row">
+        <div class="f-grid">
+            <!-- COLUMN 1: Logo & Info -->
+            <div class="f-logo-side">
+                <img src="White.png" alt="Relax Outback">
+                <p style="opacity: 0.5; font-size: 0.9rem; line-height: 2;">
+                    Premier In-Ground Solutions<br>
+                    Bettendorf & The Quad Cities Area<br>
+                    (563) XXX-XXXX
+                </p>
+                <div style="display:flex; gap:18px; margin-top:25px; font-size:1.4rem;">
                     <i class="fab fa-facebook-square"></i>
                     <i class="fab fa-instagram"></i>
+                    <i class="fab fa-houzz"></i>
                 </div>
             </div>
-            <div class="f-col f-links">
-                <h4>SERVICES</h4>
-                <ul>
+
+            <!-- COLUMN 2: Services -->
+            <div>
+                <span class="f-list-head">SERVICES</span>
+                <ul class="f-link-list">
                     <li>Fiberglass Pools</li>
                     <li>Deck Design</li>
                     <li>Site Layout</li>
@@ -381,9 +430,11 @@ header {
                     <li>Composite Build</li>
                 </ul>
             </div>
-            <div class="f-col f-links">
-                <h4>AREAS SERVED</h4>
-                <ul>
+
+            <!-- COLUMN 3: Locations -->
+            <div>
+                <span class="f-list-head">AREAS SERVED</span>
+                <ul class="f-link-list">
                     <li>Bettendorf, IA</li>
                     <li>Davenport, IA</li>
                     <li>Le Claire, IA</li>
@@ -391,17 +442,21 @@ header {
                     <li>Rock Island, IL</li>
                 </ul>
             </div>
-            <div class="f-col">
-                <h4>START A PROJECT</h4>
-                <p style="opacity:0.6; font-size: 0.8rem; line-height: 2;">Register your interest today to secure a spot for the construction season.</p>
-                <a href="#" class="cta-btn" style="width:100%; display:block; text-align:center; margin-top:20px;">Request Design Info</a>
+
+            <!-- COLUMN 4: CTA -->
+            <div>
+                <span class="f-list-head">START PROJECT</span>
+                <p style="opacity: 0.5; font-size: 0.85rem; margin-bottom: 20px;">Secure your site consultation for the upcoming 2025 construction season.</p>
+                <button class="cta-btn" style="width:100%; border-color:#fff; color:#fff; background:transparent;">Request Expert</button>
             </div>
         </div>
-        <div class="row f-bottom">
-            <p>&copy; 2025 Relax Outback | Quad Cities Preferred Pool & Deck Builder</p>
-            <p>Designated IA Registered Contractor #0XXX91 | Sitemap | Terms</p>
+
+        <div class="f-meta">
+            <p>© 2025 Relax Outback Group | Master Certified Iowa Builders #0XXX91</p>
+            <p>Sitemap | Privacy Policy | Terms</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script>
         // Smooth intersection Observer
