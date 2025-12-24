@@ -70,35 +70,37 @@
         }
         .hero h1 { color: var(--white); font-size: clamp(3rem, 7vw, 4.5rem); margin-bottom: 20px; font-weight: 900; text-shadow: 0 5px 20px rgba(0,0,0,0.4); }
 
-        /* --- THE STEP LEAD FORM (THE CROWN JEWEL) --- */
-        .step-form-section { margin-top: -65px; position: relative; z-index: 10; padding-bottom: 100px; }
+        /* --- THE STEP LEAD FORM (PERFECTED LOOK) --- */
+        .step-form-section { margin-top: -65px; position: relative; z-index: 100; padding-bottom: 120px; }
         .step-box { 
             display: grid; grid-template-columns: 200px 1fr 150px; background: var(--white); 
-            box-shadow: var(--shadow-premium); overflow: hidden;
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15); border-radius: 4px; overflow: hidden; min-height: 220px;
         }
         .step-id-area { background: var(--navy); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--white); padding: 35px; }
-        .id-circle { border: 2px solid rgba(153, 204, 255, 0.4); border-radius: 50%; width: 90px; height: 90px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .id-circle small { font-size: 0.65rem; opacity: 0.6; font-weight: 700; letter-spacing: 1px; }
-        .id-circle strong { font-size: 2.2rem; line-height: 1; }
+        .id-circle { border: 2px solid var(--secondary); border-radius: 50%; width: 95px; height: 95px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .id-circle small { font-size: 0.65rem; opacity: 0.6; font-weight: 700; letter-spacing: 2px; }
+        .id-circle strong { font-size: 2.5rem; line-height: 1; font-weight: 800; }
 
-        .step-content { padding: 50px 60px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--bg-off-white); }
-        .step-content h2 { font-size: 1.1rem; margin-bottom: 30px; letter-spacing: 1px; color: var(--primary); }
-        .opt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .step-content { padding: 45px 60px; display: flex; align-items: center; border-right: 1px solid var(--bg-off-white); }
+        .step-content h2 { font-size: 1.2rem; color: var(--primary); margin-bottom: 25px; font-weight: 800; }
+        
+        .opt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 100%; transition: opacity 0.3s ease; }
         .option { 
-            padding: 18px 25px; border: 1.5px solid var(--bg-off-white); cursor: pointer; transition: var(--transition);
-            font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 10px;
+            padding: 20px; border: 2px solid var(--bg-off-white); cursor: pointer; transition: var(--transition);
+            font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 12px; color: var(--slate);
         }
-        .option:hover, .option.active { background: #f1f8ff; border-color: var(--secondary); color: var(--primary); }
-        .option::before { content: ''; width: 8px; height: 8px; border: 1px solid var(--secondary); border-radius: 50%; display: inline-block; }
-        .option.active::before { background: var(--aqua); border-color: var(--aqua); }
+        .option:hover { border-color: var(--secondary); background: #f8fafc; transform: translateY(-2px); }
+        .option.active { border-color: var(--primary); background: #f1f8ff; color: var(--primary); }
+        .option::before { content: ''; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--secondary); flex-shrink: 0; }
+        .option.active::before { background: var(--aqua); border-color: var(--aqua); box-shadow: 0 0 0 4px rgba(20, 184, 198, 0.1); }
 
-        .step-nav { 
-            background: var(--aqua); display: flex; flex-direction: column; align-items: center; justify-content: center; 
-            cursor: pointer; transition: var(--transition);
-        }
+        .step-nav { background: var(--aqua); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); }
         .step-nav:hover { background: var(--primary); }
         .step-nav span { color: var(--white); font-weight: 900; font-size: 1rem; text-transform: uppercase; margin-bottom: 5px; }
-        .step-nav i { color: var(--white); font-size: 1.2rem; }
+        .step-nav i { color: var(--white); font-size: 1.3rem; }
+
+        .step-input { width: 100%; padding: 18px; border: 2px solid var(--bg-off-white); margin-bottom: 12px; font-family: inherit; font-weight: 600; outline: none; }
+        .step-input:focus { border-color: var(--aqua); background: #f0fdff; }
 
         /* --- HOME GRID LAYOUT --- */
         .overview { text-align: center; padding-bottom: 100px; }
@@ -184,7 +186,7 @@
                 </ul>
             </nav>
             <div style="display:flex; align-items:center; gap:25px;">
-                <a href="tel:5635550123" class="tel-link">(563) 285-XXXX</a>
+                <a href="tel:5635550123" class="tel-link">(XXX) XXX-XXXX</a>
                 <a href="#" class="cta-btn">Free Consultation</a>
             </div>
         </div>
@@ -375,82 +377,118 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth intersection Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Functional Lead Wizard
-        let sId = 1;
-        function next() {
-            const h = document.getElementById('vHeader');
-            const g = document.getElementById('vGrid');
-            const id = document.getElementById('vNum');
-            const btn = document.getElementById('vBtn');
-
-            if(sId >= 3) {
-                alert("Consultation Secured! An expert will review your layout shortly.");
-                location.reload(); return;
+   <script>
+    // 1. Premium Intersection Observer (Smooth Scroll Fades)
+    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
             }
-            sId++;
-            id.innerText = "0" + sId;
+        });
+    }, observerOptions);
 
-            g.style.opacity = 0;
-            setTimeout(() => {
-                if(sId === 2) {
-                    h.innerText = "When Do You Want To Build?";
-                    g.innerHTML = `
-                        <div class="option active" onclick="sel(this)">Next Spring</div>
-                        <div class="option" onclick="sel(this)">Early Summer</div>
-                        <div class="option" onclick="sel(this)">Urgent (30-60 Days)</div>
-                        <div class="option" onclick="sel(this)">Just Looking for Info</div>
-                    `;
-                } else if(sId === 3) {
-                    h.innerText = "Who are we contacting?";
-                    g.innerHTML = `
-                        <div style="grid-column: span 2;">
-                            <input type="text" placeholder="Your Full Name*" style="width:100%; padding:15px; margin-bottom:12px; border:2px solid var(--bg-off-white);">
-                            <input type="email" placeholder="Best Email Address*" style="width:100%; padding:15px; border:2px solid var(--bg-off-white);">
-                        </div>
-                    `;
-                    btn.innerText = "SUBMIT";
-                }
-                g.style.opacity = 1;
-            }, 300);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // 2. Functional Lead Wizard (Multi-Step Logic)
+    let sId = 1;
+    function next() {
+        const h = document.getElementById('vHeader');
+        const g = document.getElementById('vGrid');
+        const id = document.getElementById('vNum');
+        const btn = document.getElementById('vBtn');
+
+        // Logic for final click (Submit)
+        if(sId >= 3) {
+            alert("Information Sent. A Relax Outback specialist will reach out shortly.");
+            location.reload(); 
+            return;
         }
 
-        function sel(el) {
-            el.parentNode.querySelectorAll('.option').forEach(o => o.classList.remove('active'));
-            el.classList.add('active');
-        }
+        sId++;
+        id.innerText = "0" + sId;
 
-        // Services Tabber Logic
-        const tabData = [
-            { h: "Fiberglass Pool Excellence", s: "Lower maintenance. Better finish.", d: "Fiberglass pools coordinate with Iowa climates. Precision plumbing and finishing ensures your backyard stays cleaner with significantly fewer chemicals than gunite.", i: "https://images.unsplash.com/photo-1574241088497-7f97576a0d61?auto=format&fit=crop&q=80&w=1000"},
-            { h: "Site-Fit Deck Design", s: "Matching your footprint perfectly.", d: "From Western Red Cedar to composite polymers, we build custom decks engineered for drainage and access across Quad City terrains.", i: "https://images.unsplash.com/photo-1591825200241-8e40fca44a67?auto=format&fit=crop&q=80&w=1000"},
-            { h: "Porches & Overhangs", s: "Protect your sanctuary from weather.", d: "Porch additions extend the usable pool season in Eastern Iowa. Architectural shading design built specifically for outdoor kitchen and seating integration.", i: "https://images.unsplash.com/photo-1621619856624-42fd193a0661?auto=format&fit=crop&q=80&w=1000"}
-        ];
+        // Transition animation (Fades the grid only)
+        g.style.opacity = 0;
+        
+        setTimeout(() => {
+            if(sId === 2) {
+                // STEP 2: Intent Selection
+                h.innerText = "Tell Us How We Can Help?";
+                g.innerHTML = `
+                    <div class="option active" onclick="sel(this)" style="grid-column: span 1; padding: 25px;">Get a Quote</div>
+                    <div class="option" onclick="sel(this)" style="grid-column: span 1; padding: 25px;">Request a Consultation</div>
+                `;
+            } else if(sId === 3) {
+                // STEP 3: Contact Details
+                h.innerText = "Who should we contact?";
+                // Stack inputs for Step 3
+                g.style.display = "block";
+                g.innerHTML = `
+                    <div style="margin-bottom:12px;">
+                        <input type="text" placeholder="Your Full Name*" style="width:100%; padding:18px; border:2px solid #f5f7fa; font-family: inherit; font-weight: 600; outline: none; border-radius: 4px; font-size: 0.9rem;">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Preferred Email Address*" style="width:100%; padding:18px; border:2px solid #f5f7fa; font-family: inherit; font-weight: 600; outline: none; border-radius: 4px; font-size: 0.9rem;">
+                    </div>
+                `;
+                btn.innerText = "SUBMIT";
+                document.getElementById('vIcon').className = "fas fa-paper-plane";
+            }
+            g.style.opacity = 1;
+        }, 300);
+    }
 
-        function tabShow(n, el) {
-            document.querySelectorAll('.tab-trigger').forEach(t => t.classList.remove('active'));
-            el.classList.add('active');
-            const main = document.getElementById('tMain');
-            main.style.opacity = 0.5;
-            setTimeout(() => {
-                document.getElementById('tHead').innerText = tabData[n].h;
-                document.getElementById('tSub').innerText = tabData[n].s;
-                document.getElementById('tDesc').innerText = tabData[n].d;
-                document.getElementById('tImg').style.backgroundImage = `url(${tabData[n].i})`;
-                main.style.opacity = 1;
-            }, 300);
+    // Toggle Active Class for Wizard Selections
+    function sel(el) {
+        const peers = el.parentNode.querySelectorAll('.option');
+        peers.forEach(p => p.classList.remove('active'));
+        el.classList.add('active');
+    }
+
+    // 3. Modern Tab Data & Content Logic
+    const tabData = [
+        { 
+            h: "Fiberglass Pool Excellence", 
+            s: "Smooth Finish. Lower Lifetime Maintenance.", 
+            d: "Relax Outback handles the precision layout and placement of world-class fiberglass pools. Our specialized installation is significantly faster and cleaner than traditional concrete builds.", 
+            i: "https://images.unsplash.com/photo-1574241088497-7f97576a0d61?auto=format&fit=crop&q=80&w=1200"
+        },
+        { 
+            h: "Site-Aligned Deck Design", 
+            s: "Matching Your Footprint Perfectly.", 
+            d: "We design and build high-grade composite and Western Red Cedar decks engineered to follow the custom lines of your pool placement while ensuring Iowa-standard safety and drainage.", 
+            i: "https://images.unsplash.com/photo-1591825200241-8e40fca44a67?auto=format&fit=crop&q=80&w=1200"
+        },
+        { 
+            h: "Covered Porches & Living", 
+            s: "Protect Your Seasonal Sanctuary.", 
+            d: "Extend your usability with custom porches and shaded patio additions. Our builds architectural structures that look like a natural extension of your Davenport or Bettendorf area home.", 
+            i: "https://images.unsplash.com/photo-1621619856624-42fd193a0661?auto=format&fit=crop&q=80&w=1200"
         }
-    </script>
+    ];
+
+    function tabShow(n, el) {
+        // Handle Trigger Highlighting
+        const tabs = document.querySelectorAll('.tab-trigger');
+        tabs.forEach(t => t.classList.remove('active'));
+        el.classList.add('active');
+
+        const container = document.getElementById('tMain');
+        
+        // Tab body fade out transition
+        container.style.opacity = 0;
+        
+        setTimeout(() => {
+            document.getElementById('tHead').innerText = tabData[n].h;
+            document.getElementById('tSub').innerText = tabData[n].s;
+            document.getElementById('tDesc').innerText = tabData[n].d;
+            document.getElementById('tImg').style.backgroundImage = `url(${tabData[n].i})`;
+            
+            // Re-fade the tab content in
+            container.style.opacity = 1;
+        }, 300);
+    }
+</script>
 </body>
 </html>
