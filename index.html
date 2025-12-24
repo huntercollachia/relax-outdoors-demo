@@ -44,10 +44,28 @@ read this and just write the words that would be on the page, then improve for S
         }
         .header-wrap { display: flex; justify-content: space-between; align-items: center; }
         
-        .logo-box { display: flex; align-items: center; gap: 10px; }
-        .logo-txt { line-height: 0.9; }
-        .logo-t { color: var(--white); font-weight: 900; font-size: 1.6rem; letter-spacing: 2px; }
-        .logo-b { color: var(--secondary); font-size: 0.6rem; font-weight: 700; letter-spacing: 4px; display: block; margin-top: 5px; }
+        .logo-box {
+    display: flex;
+    align-items: center;
+}
+
+.header-brand-logo {
+    /* Adjust this number (60px-80px) until it feels bold enough for you */
+    height: 75px; 
+    width: auto;
+    display: block;
+    /* This transition keeps the "Premium Look" on hover */
+    transition: transform 0.3s ease;
+}
+
+.header-brand-logo:hover {
+    transform: scale(1.03);
+}
+
+/* Adjust header vertical padding if the bigger logo feels tight */
+header {
+    padding: 10px 0 !important;
+}
 
         nav ul { display: flex; gap: 25px; }
         nav a { color: var(--white); font-size: 0.8rem; font-weight: 800; }
@@ -169,16 +187,11 @@ read this and just write the words that would be on the page, then improve for S
     <header>
         <div class="row header-wrap">
             <div class="logo-box">
-                <!-- SVG MAPPED TO RELAX OUTBACK COLORS -->
-                <svg width="45" height="45" viewBox="0 0 100 100">
-                    <path d="M10 50 Q 50 10, 90 50 Q 50 90, 10 50" fill="none" stroke="var(--primary)" stroke-width="6"/>
-                    <path d="M25 50 Q 50 25, 75 50" fill="none" stroke="var(--aqua)" stroke-width="4" stroke-linecap="round"/>
-                </svg>
-                <div class="logo-txt">
-                    <span class="logo-t">RELAX <b style="color:var(--aqua)">OUTBACK</b></span>
-                    <span class="logo-b">BETTENDORF SPECIALISTS</span>
-                </div>
-            </div>
+    <a href="/">
+        <!-- We use White.png and set a fixed height so the Nav stays exactly where it is -->
+        <img src="White.png" alt="Relax Outback Pool & Deck" class="header-brand-logo">
+    </a>
+</div>
             <nav>
                 <ul>
                     <li><a href="#">Pools</a></li>
