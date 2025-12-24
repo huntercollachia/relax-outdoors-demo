@@ -410,12 +410,10 @@ read this and just write the words that would be on the page, then improve for S
             g.style.opacity = 0;
             setTimeout(() => {
                 if(sId === 2) {
-                    h.innerText = "When Do You Want To Build?";
+                    h.innerText = "Tell Us How We Can Help?";
                     g.innerHTML = `
-                        <div class="option active" onclick="sel(this)">Next Spring</div>
-                        <div class="option" onclick="sel(this)">Early Summer</div>
-                        <div class="option" onclick="sel(this)">Urgent (30-60 Days)</div>
-                        <div class="option" onclick="sel(this)">Just Looking for Info</div>
+                        <div class="option active" onclick="sel(this)">Get a Quote</div>
+                        <div class="option" onclick="sel(this)">Request a Consultation</div>
                     `;
                 } else if(sId === 3) {
                     h.innerText = "Who are we contacting?";
