@@ -4,19 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relax Outback | Premium Pool & Deck Specialists</title>
-    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
     <style>
-        /* --- BRAND COLORS --- */
+        /* --- BRAND DESIGN TOKENS --- */
         :root {
-            --primary: #336699;
-            --secondary: #99ccff;
-            --navy: #0f172a;
-            --slate: #475569;
-            --bg-off-white: #f5f7fa;
-            --warm-sand: #f2e9d8;
-            --aqua: #14b8c6;
+            --primary: #336699;      /* Logo Primary Blue */
+            --secondary: #99ccff;    /* Logo Secondary Blue */
+            --navy: #0f172a;         /* Deep Contrast */
+            --slate: #475569;         /* Body Text */
+            --bg-off-white: #f5f7fa;  /* Global BG */
+            --warm-sand: #f2e9d8;     /* Accents */
+            --aqua: #14b8c6;          /* Action Accent */
+            --success: #16a34a;
             --white: #ffffff;
             --shadow-premium: 0 15px 45px rgba(15, 23, 42, 0.12);
             --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -24,40 +23,41 @@
 
         /* --- GLOBAL SETUP --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: var(--bg-off-white); color: var(--slate); line-height: 1.6; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: var(--bg-off-white); color: var(--slate); line-height: 1.6; overflow-x: hidden; }
         .row { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         h1, h2, h3 { color: var(--navy); text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.1; }
         a { text-decoration: none; transition: var(--transition); }
         ul { list-style: none; }
 
+        /* --- SCROLL ANIMATION --- */
         .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); transition-duration: 1.2s; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- HEADER: BIGGER LOGO --- */
+        /* --- HEADER --- */
         header { 
-            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 10px 0; 
-            background: rgba(15, 23, 42, 0.98); border-bottom: 2.5px solid var(--primary);
+            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 15px 0; 
+            background: rgba(15, 23, 42, 0.98); border-bottom: 1.5px solid var(--primary);
             backdrop-filter: blur(10px);
         }
         .header-wrap { display: flex; justify-content: space-between; align-items: center; }
         
-        /* White Logo sizing at 90px height */
+        /* Updated Logo sizing as requested */
         .logo-box img { height: 90px; width: auto; display: block; }
 
         nav ul { display: flex; gap: 25px; }
-        nav a { color: var(--white); font-size: 0.85rem; font-weight: 800; text-transform: uppercase; }
+        nav a { color: var(--white); font-size: 0.8rem; font-weight: 800; }
         nav a:hover { color: var(--aqua); }
 
-        .tel-link { color: var(--white); font-weight: 700; font-size: 1.1rem; }
+        .tel-link { color: var(--white); font-weight: 700; font-size: 0.9rem; }
         .cta-btn { 
-            border: 2px solid var(--aqua); color: var(--aqua); padding: 12px 22px; 
-            font-size: 0.75rem; font-weight: 900; text-transform: uppercase; transition: var(--transition);
+            border: 2px solid var(--aqua); color: var(--aqua); padding: 10px 20px; 
+            font-size: 0.75rem; font-weight: 900; text-transform: uppercase;
         }
         .cta-btn:hover { background: var(--aqua); color: var(--white); box-shadow: 0 10px 20px rgba(20, 184, 198, 0.3); }
 
         /* --- HERO --- */
         .hero { 
-            height: 75vh; margin-top: 80px;
+            height: 75vh; margin-top: 70px;
             background: linear-gradient(rgba(15,23,42,0.4), rgba(15,23,42,0.4)), 
             url('https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=2000') center/cover;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -65,92 +65,95 @@
         }
         .hero h1 { color: var(--white); font-size: clamp(3rem, 7vw, 4.5rem); margin-bottom: 20px; font-weight: 900; text-shadow: 0 5px 20px rgba(0,0,0,0.4); }
 
-        /* --- THE STEP LEAD FORM --- */
+        /* --- STEP LEAD FORM (STYLING PRESERVED) --- */
         .step-form-section { margin-top: -65px; position: relative; z-index: 10; padding-bottom: 100px; }
         .step-box { 
             display: grid; grid-template-columns: 200px 1fr 150px; background: var(--white); 
             box-shadow: var(--shadow-premium); overflow: hidden; min-height: 250px;
         }
-        .step-id-area { background: var(--navy); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--white); padding: 35px; }
-        .id-circle { border: 2px solid rgba(153, 204, 255, 0.4); border-radius: 50%; width: 90px; height: 90px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .id-circle small { font-size: 0.65rem; opacity: 0.6; font-weight: 700; letter-spacing: 1px; }
+        .step-id-area { background: var(--navy); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--white); padding: 35px; border-right: 1px solid rgba(255,255,255,0.05); }
+        .id-circle { border: 2.2px solid var(--secondary); border-radius: 50%; width: 95px; height: 95px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .id-circle small { font-size: 0.65rem; opacity: 0.6; font-weight: 700; }
         .id-circle strong { font-size: 2.2rem; line-height: 1; }
 
         .step-content { padding: 50px 70px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--bg-off-white); }
+        .step-content h2 { font-size: 1.4rem; margin-bottom: 30px; letter-spacing: 1px; color: var(--primary); font-weight: 800; border-bottom: 2.5px solid var(--bg-off-white); padding-bottom: 15px; }
         
-        /* Question explicitly on top */
-        .step-content h2 { font-size: 1.4rem; margin-bottom: 30px; letter-spacing: 1px; color: var(--primary); font-weight: 800; border-bottom: 2px solid var(--bg-off-white); padding-bottom: 15px; }
-        
-        .interaction-wrap { transition: opacity 0.3s ease; }
-        .opt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .v-interaction { transition: opacity 0.3s; width: 100%; }
+        .opt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 100%; }
         .option { 
             padding: 22px 25px; border: 2.5px solid var(--bg-off-white); cursor: pointer; transition: var(--transition);
-            font-weight: 800; font-size: 0.85rem; display: flex; align-items: center; gap: 15px; color: var(--slate);
+            font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 10px; color: var(--slate);
         }
         .option:hover { border-color: var(--secondary); background: #fafafa; }
-        .option.active { border-color: var(--primary); background: #f0f7ff; color: var(--primary); }
-        .option::before { content: ''; width: 12px; height: 12px; border: 2px solid var(--secondary); border-radius: 50%; transition: 0.3s; flex-shrink: 0; }
-        .option.active::before { background: var(--aqua); border-color: var(--aqua); box-shadow: 0 0 0 5px rgba(20, 184, 198, 0.1); }
+        .option.active { border-color: var(--primary); background: #f1f8ff; color: var(--primary); }
+        .option::before { content: ''; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--secondary); transition: 0.3s; }
+        .option.active::before { background: var(--aqua); border-color: var(--aqua); box-shadow: 0 0 0 4px rgba(20, 184, 198, 0.15); }
 
-        .field-group { display: flex; flex-direction: column; gap: 15px; width: 100%; }
-        .field { width: 100%; padding: 22px; background: var(--bg-off-white); border: 2px solid transparent; font-family: inherit; font-weight: 800; font-size: 0.95rem; color: var(--navy); outline: none; transition: 0.3s; }
-        .field:focus { border-color: var(--aqua); background: #fff; }
+        .input-wrap { display: flex; flex-direction: column; gap: 15px; width: 100%; }
+        .fld { padding: 22px; width: 100%; border: 2.5px solid var(--bg-off-white); outline: none; font-weight: 700; font-family: inherit; font-size: 0.95rem; color: var(--navy); }
+        .fld:focus { border-color: var(--aqua); background: #f0fdff; }
 
         .step-nav { background: var(--aqua); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); }
         .step-nav:hover { background: var(--primary); }
-        .step-nav span { color: var(--white); font-weight: 900; font-size: 1rem; text-transform: uppercase; margin-bottom: 5px; }
+        .step-nav span { color: var(--white); font-weight: 900; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 8px; }
         .step-nav i { color: var(--white); font-size: 1.5rem; }
 
-        /* --- CONTENT GRIDS --- */
-        .overview { text-align: center; padding-bottom: 100px; margin-top: 80px; }
+        /* --- OVERVIEW & GALLERY (PRESERVED) --- */
+        .overview { text-align: center; padding-bottom: 100px; }
+        .overview h1 { font-size: 1.2rem; color: var(--aqua); margin-bottom: 10px; font-weight: 700; }
+        .overview h2 { font-size: 2.8rem; margin-bottom: 25px; }
         .feature-grid { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: repeat(2, 330px); gap: 20px; }
         .grid-item { position: relative; overflow: hidden; cursor: pointer; color: var(--white); }
-        .grid-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: 1.5s; }
-        .overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(rgba(15,23,42,0), rgba(15, 23, 42, 0.85)); padding: 40px; display: flex; align-items: flex-end; }
-        .large { grid-row: span 2; }
+        .grid-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: 1.5s ease; }
+        .overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(transparent, rgba(15, 23, 42, 0.85)); padding: 40px; display: flex; align-items: flex-end; }
         .link-text { font-weight: 800; font-size: 0.8rem; color: var(--aqua); letter-spacing: 2px; }
+        .large { grid-row: span 2; }
 
-        /* --- PASSION / ABOUT --- */
+        /* --- PASSION / ABOUT (RE-INFORCED TO CORRECT VISUALS) --- */
         .about { display: flex; gap: 80px; padding: 150px 0; background: var(--white); border-bottom: 1.5px solid var(--warm-sand); }
         .about-left { flex: 1.4; }
         .about-right { flex: 1; border-left: 2px solid var(--warm-sand); padding-left: 50px; }
-        .quote { margin-bottom: 50px; }
-        .quote p { font-style: italic; font-size: 1.2rem; color: var(--navy); margin-bottom: 12px; }
-        .quote b { color: var(--primary); font-size: 0.8rem; letter-spacing: 2px; }
+        .quote { margin-bottom: 50px; position: relative; }
+        .quote p { font-style: italic; font-size: 1.2rem; color: var(--navy); margin-bottom: 12px; line-height: 1.8; }
+        .quote b { font-weight: 900; color: var(--primary); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* --- WHAT WE DO TABS --- */
-        .services { padding: 100px 0; background: var(--bg-off-white); text-align: center; }
-        .tab-headers { display: flex; justify-content: center; gap: 60px; border-bottom: 1.5px solid var(--secondary); margin-bottom: 60px; }
-        .tab-trigger { padding-bottom: 25px; font-weight: 900; cursor: pointer; opacity: 0.5; color: var(--slate); font-size: 0.85rem; letter-spacing: 1px; position: relative; }
+        /* --- TABS --- */
+        .services { padding: 120px 0; background: var(--bg-off-white); text-align: center; }
+        .tab-headers { display: flex; justify-content: center; gap: 60px; border-bottom: 1.5px solid var(--secondary); margin-bottom: 70px; }
+        .tab-trigger { padding-bottom: 25px; font-weight: 900; cursor: pointer; opacity: 0.4; font-size: 0.85rem; letter-spacing: 1.5px; position: relative; }
         .tab-trigger.active { color: var(--primary); opacity: 1; }
-        .tab-trigger.active::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 100%; height: 6px; background: var(--aqua); }
-        
+        .tab-trigger.active::after { content: ''; position: absolute; bottom: -3.5px; left: 0; width: 100%; height: 6px; background: var(--aqua); }
+
         .tab-body { display: grid; grid-template-columns: 1fr 1fr; background: var(--white); box-shadow: var(--shadow-premium); overflow: hidden; border-radius: 4px; text-align: left; }
-        .tab-img { min-height: 500px; background-size: cover; background-position: center; transition: 0.5s; }
+        .tab-img { height: 500px; background-size: cover; background-position: center; transition: 0.5s ease; }
         .tab-txt { padding: 80px; display: flex; flex-direction: column; justify-content: center; }
 
-        /* --- DREAM BUILD ENJOY --- */
+        /* --- ICON PILLARS --- */
         .icon-pillars { 
-            background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98)), url('https://www.sunsetpools-spas.com/wp-content/uploads/footer-bg.jpg'); 
-            background-size: cover; padding: 130px 0; color: var(--white); text-align: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98)), 
+            url('https://www.sunsetpools-spas.com/wp-content/uploads/footer-bg.jpg'); 
+            background-size: cover; padding: 140px 0; color: var(--white); text-align: center;
         }
-        .icon-flex { display: grid; grid-template-columns: repeat(3, 1fr); gap: 70px; }
-        .pillar h2 { color: var(--secondary); font-size: 2rem; margin: 25px 0; }
-        .pillar i { font-size: 3.5rem; color: var(--white); }
+        .icon-flex { display: grid; grid-template-columns: repeat(3, 1fr); gap: 80px; }
+        .pillar h2 { color: var(--secondary); font-size: 2.2rem; margin: 25px 0; font-weight: 900; }
+        .pillar i { font-size: 4rem; color: var(--white); opacity: 0.9; }
+        .pillar p { opacity: 0.8; font-size: 1.1rem; line-height: 1.9; }
 
         /* --- FOOTER --- */
-        footer { background: var(--navy); color: var(--white); padding: 100px 0 60px; border-top: 4px solid var(--aqua); }
-        .f-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 50px; }
-        .f-col h4 { color: var(--secondary); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 35px; font-weight: 800; }
-        .f-col li { font-size: 0.95rem; opacity: 0.6; margin-bottom: 15px; cursor: pointer; transition: 0.3s; }
-        .f-col li:hover { opacity: 1; color: var(--aqua); padding-left: 10px; }
-        .f-bottom { border-top: 1px solid rgba(255,255,255,0.05); margin-top: 80px; padding-top: 40px; display: flex; justify-content: space-between; font-size: 0.75rem; opacity: 0.4; }
+        footer { background: var(--navy); color: var(--white); padding: 100px 0 60px; border-top: 4.5px solid var(--aqua); }
+        .f-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 50px; }
+        .f-col h4 { color: var(--secondary); letter-spacing: 2.5px; font-size: 0.8rem; margin-bottom: 35px; font-weight: 900; }
+        .f-col li { font-size: 0.95rem; opacity: 0.6; margin-bottom: 12px; transition: 0.3s; cursor: pointer; }
+        .f-col li:hover { opacity: 1; color: var(--aqua); padding-left: 8px; }
+        .f-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 45px; margin-top: 80px; display: flex; justify-content: space-between; opacity: 0.4; font-size: 0.75rem; }
 
         @media (max-width: 1000px) {
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 3rem; }
             .header-wrap, .feature-grid, .about, .tab-body, .icon-flex, .f-grid, .step-box { grid-template-columns: 1fr; }
             .step-id-area, .step-nav, nav { display: none; }
-            .logo-box img { height: 60px; }
+            .step-content { padding: 40px 30px; }
+            .logo-box img { height: 70px; }
         }
     </style>
 </head>
@@ -160,215 +163,232 @@
         <div class="row header-wrap">
             <div class="logo-box">
                 <a href="/">
-                    <!-- Point to the local file sitting in your Github root -->
-                    <img src="White.png" alt="Relax Outback Logo">
+                    <!-- Reference to the logo uploaded to root directory -->
+                    <img src="White.png" alt="Relax Outback Premium Pool and Deck">
                 </a>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Pools</a></li>
-                    <li><a href="#">Decks</a></li>
-                    <li><a href="#">Porches</a></li>
+                    <li><a href="#">Fiberglass Pools</a></li>
+                    <li><a href="#">Design Decks</a></li>
+                    <li><a href="#">Sanctuary Porches</a></li>
                     <li><a href="#">Finishing</a></li>
-                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Project Gallery</a></li>
                 </ul>
             </nav>
             <div style="display:flex; align-items:center; gap:25px;">
-                <a href="tel:5632851234" class="tel-link">(563) 285-XXXX</a>
-                <button class="cta-btn">Free Consultation</button>
+                <a href="tel:563285XXXX" class="tel-link">(563) 285-XXXX</a>
+                <a href="#" class="cta-btn">Free Consultation</a>
             </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="reveal">
-            <h1 class="reveal active">Your Escape.<br>Built locally.</h1>
-            <p style="color:var(--secondary); letter-spacing:4px; font-weight:800; margin-top:15px;">Fiberglass Specialists | Bettendorf & The QCA</p>
+            <h1 class="reveal">Sanctuary.<br>Crafted locally.</h1>
+            <p style="color:var(--secondary); font-weight:900; letter-spacing:4px; margin-top:10px;">Preferred In-Ground specialists for Eastern Iowa</p>
         </div>
     </section>
 
-    <!-- FIXED LEAD WIZARD -->
+    <!-- LEAD FORM -->
     <div class="row step-form-section">
         <div class="step-box reveal active">
             <div class="step-id-area">
                 <div class="id-circle">
                     <small>STATUS</small>
-                    <strong id="vizId">01</strong>
+                    <strong id="vID">01</strong>
                 </div>
             </div>
             <div class="step-content">
-                <!-- Question strictly sits on TOP -->
-                <h2 id="vizHdr">Where Would You Like To Start?</h2>
-                <div class="interaction-wrap" id="vizInteraction">
-                    <div class="opt-grid" id="vizGrid">
-                        <div class="option active" onclick="sel(this)">New Fiberglass Pool</div>
-                        <div class="option" onclick="sel(this)">Custom Deck Layout</div>
-                        <div class="option" onclick="sel(this)">Patio Enclosure Addition</div>
-                        <div class="option" onclick="sel(this)">Full Outdoor Renovation</div>
+                <h2 id="vHdr">Where Would You Like To Start?</h2>
+                <div class="v-interaction" id="vContent">
+                    <div class="opt-grid" id="vGrid">
+                        <div class="option active" onclick="ch(this)">New Fiberglass Pool</div>
+                        <div class="option" onclick="ch(this)">Custom Deck Build</div>
+                        <div class="option" onclick="ch(this)">Covered Porch Addition</div>
+                        <div class="option" onclick="ch(this)">Site Service & Repair</div>
                     </div>
                 </div>
             </div>
-            <div class="step-nav" onclick="nextWiz()">
-                <span id="btnLbl">Next</span>
-                <i class="fas fa-chevron-right" id="btnIcon"></i>
+            <div class="step-nav" onclick="nx()">
+                <span id="vB">Next</span>
+                <i class="fas fa-chevron-right" id="vI"></i>
             </div>
         </div>
     </div>
 
-    <!-- GALLERY SECTION -->
+    <!-- OVERVIEW SECTION -->
     <section class="row overview reveal">
-        <h2>Eastern Iowa Built</h2>
+        <h1>RELAX OUTBACK</h1>
+        <h2>Local Engineering. Resort Feel.</h2>
         <div style="width: 50px; height: 3px; background:var(--aqua); margin: 30px auto;"></div>
-        <p>Expert coordination from the first bucket of dirt to the final architectural finish.</p>
+        <p>Specializing in fiberglass placements across the Quad Cities, our team manages every step from excavation coordination to final carpentry. We take your yard's soil and drainage profile and build a layout for longevity.</p>
 
-        <div class="feature-grid" style="margin-top: 60px;">
+        <div class="feature-grid" style="margin-top: 65px;">
             <div class="grid-item large">
-                <img src="https://images.unsplash.com/photo-1594498653385-d5172c532c00?auto=format&fit=crop&q=80&w=1200" alt="Work 1">
-                <div class="overlay"><div><h3>Latest Builds Gallery</h3><span class="link-text">VIEW PROJECTS -></span></div></div>
+                <img src="https://images.unsplash.com/photo-1594498653385-d5172c532c00?auto=format&fit=crop&q=80&w=1200" alt="Pool Gallery">
+                <div class="overlay"><div><h3>The Project Gallery</h3><span class="link-text">VIEW EASTERN IA BUILDS <i class="fas fa-arrow-right"></i></span></div></div>
             </div>
             <div class="grid-item">
-                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800" alt="Financing">
-                <div class="overlay"><div><h3>Project Financing</h3><span class="link-text">LENDING OPTIONS -></span></div></div>
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800" alt="Finance">
+                <div class="overlay"><div><h3>Project Financing</h3><span class="link-text">SMART LENDING INFO <i class="fas fa-arrow-right"></i></span></div></div>
             </div>
             <div class="grid-item">
-                <img src="https://images.unsplash.com/photo-1595113316349-9fa4ee24f884?auto=format&fit=crop&q=80&w=800" alt="Designer">
-                <div class="overlay"><div><h3>Request Designer Tour</h3><span class="link-text">MEET EXPERTS -></span></div></div>
+                <img src="https://images.unsplash.com/photo-1595113316349-9fa4ee24f884?auto=format&fit=crop&q=80&w=800" alt="Consult">
+                <div class="overlay"><div><h3>Design Support</h3><span class="link-text">MEET WITH SPECIALISTS <i class="fas fa-arrow-right"></i></span></div></div>
             </div>
         </div>
     </section>
 
     <!-- ABOUT SECTION -->
-    <section class="about row reveal">
-        <div class="about-left">
-            <h2 style="font-size: 2.8rem; margin-bottom: 30px;">The Outback Is <br>Our Passion</h2>
-            <div style="width: 50px; height: 3px; background:var(--aqua); margin-bottom:30px;"></div>
-            <p class="lead" style="font-size:1.3rem; color:var(--primary); font-weight:700; margin-bottom:20px;">We take local Davenport properties and craft them into travel-destinations.</p>
-            <p>Fiberglass installations allow for clean placements and lower lifetime costs. Unlike standard concrete builders, we manage the soil excavation coordination and all finishing touches—carpentry to cleanup—so you step into a spotless oasis.</p>
-            <button class="cta-btn" style="margin-top:40px; border-width: 1px; color:var(--primary);">See Our Full Story</button>
-        </div>
-        <div class="about-right">
-            <div class="quote"><p>"Absolutely impeccable deck architecture that ties into the pool placement perfectly. Fast and professional."</p><b>MARK R. - BETTENDORF, IA</b></div>
-            <div class="quote"><p>"Finally found a Quad City builder that actually cleans the worksite and cares about fiberglass longevity. Worth every penny."</p><b>JEN S. - DAVENPORT, IA</b></div>
+    <section class="about">
+        <div class="row">
+            <div class="about-left reveal">
+                <h2 style="font-size: 3rem; margin-bottom: 25px;">Backyards Are<br>Our Passion</h2>
+                <div style="width: 60px; height: 3px; background:var(--aqua); margin-bottom:40px;"></div>
+                <p class="lead" style="font-size: 1.35rem; font-weight: 700; color:var(--primary); margin-bottom: 25px;">Taking local footprints and creating travel-destinations.</p>
+                <p>Fiberglass installations allow for smooth surfaces and lower chemical costs compared to concrete. We manage the soil excavation, layout planning, and placement directly, remaining with you for the finish carpentry and cleaning that makes the space ready-to-use for years to come.</p>
+                <div class="cta-block" style="margin-top:40px;">
+                    <a href="#" class="cta-btn" style="border-width:1px; color:var(--navy);">View Specifications</a>
+                </div>
+            </div>
+            <div class="about-right reveal">
+                <div class="quote"><p>"The fastest construction and cleanest finish work we've seen in the Bettendorf area. Absolute professionals."</p><b>J. MONTGOMERY — QCA</b></div>
+                <div class="quote"><p>"They built our deck to bridge the home and pool perfectly. A life-changing transition."</p><b>M. SHELBY — DAVENPORT, IA</b></div>
+            </div>
         </div>
     </section>
 
-    <!-- TABBED SERVICES -->
+    <!-- CORE COMPETENCIES / TABS -->
     <section class="services">
         <div class="row reveal">
-            <h2>OUR CORE CAPABILITIES</h2>
+            <h2 style="font-size: 2.8rem; margin-bottom: 10px;">CORE COMPETENCIES</h2>
+            <p style="opacity:0.7;">Iowa-Engineered Pool Systems and Structures</p>
             <div class="tab-headers">
-                <div class="tab-trigger active" onclick="tabSwap(0, this)">POOL INSTALLATION</div>
-                <div class="tab-trigger" onclick="tabSwap(1, this)">CUSTOM DECKS</div>
-                <div class="tab-trigger" onclick="tabSwap(2, this)">WEATHER PROTECTION</div>
+                <div class="tab-trigger active" onclick="tabCh(0, this)">POOL PLACEMENT</div>
+                <div class="tab-trigger" onclick="tabCh(1, this)">SITED DECKS</div>
+                <div class="tab-trigger" onclick="tabCh(2, this)">WEATHER PORCHES</div>
             </div>
-            <div class="tab-body" id="tabContent">
-                <div class="tab-img" id="tabImg" style="background-image: url('https://images.unsplash.com/photo-1574241088497-7f97576a0d61?auto=format&fit=crop&q=80&w=1000');"></div>
+            <div class="tab-body" id="tContent">
+                <div class="tab-img" id="tImg" style="background-image: url('https://images.unsplash.com/photo-1574241088497-7f97576a0d61?auto=format&fit=crop&w=1000');"></div>
                 <div class="tab-txt">
-                    <h3 id="tabHead">Precision Pool Placement</h3>
-                    <div style="width: 40px; height: 2px; background:var(--secondary); margin-bottom:20px;"></div>
-                    <p id="tabDesc">State-of-the-art fiberglass systems that require zero scrubbing and fewer chemical interventions. We handle every layout adjustment to meet your site drainage requirements.</p>
-                    <a href="#" class="cta-btn" style="margin-top:40px; align-self:flex-start; border-color:var(--navy); color:var(--navy);">View Specifications</a>
+                    <h3 id="tHead" style="font-size:2.2rem;">Fiberglass Innovations</h3>
+                    <p style="font-size: 1.2rem; font-weight: 700; color:var(--primary); margin:15px 0;" id="tSub">Cleaning. Placement. Finishing.</p>
+                    <p id="tDesc">Our team executes high-spec fiberglass pool installations specifically for the terrain conditions of Davenport and Bettendorf. Precision excavation meets velvet smooth pool surfacing.</p>
+                    <button class="cta-btn" style="width:fit-content; border-color:var(--navy); color:var(--navy); margin-top:35px; background:transparent;">View Process Flow</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ICON PILLARS -->
+    <!-- DREAM BUILD ENJOY ICON BAR -->
     <section class="icon-pillars">
         <div class="row icon-flex reveal">
-            <div class="pillar"><i class="far fa-lightbulb"></i><h2>DREAM</h2><p>Collaborative layouts mapped specifically for your terrain's soil and drainage needs.</p></div>
-            <div class="pillar"><i class="fas fa-hammer"></i><h2>BUILD</h2><p>Industrial excavation oversight followed by master carpentry for high-longevity deck joints.</p></div>
-            <div class="pillar"><i class="fas fa-umbrella-beach"></i><h2>ENJOY</h2><p>Minimal upkeep schedules. Our fiberglass and composite systems stay clean season after season.</p></div>
+            <div class="pillar">
+                <i class="far fa-lightbulb"></i>
+                <h2>DREAM</h2>
+                <p>Architectural layouts site specifically for drainage profiles and terrain usage.</p>
+            </div>
+            <div class="pillar">
+                <i class="fas fa-hammer"></i>
+                <h2>BUILD</h2>
+                <p>Handling every bucket of soil and every cedar screw with industrial level standard.</p>
+            </div>
+            <div class="pillar">
+                <i class="fas fa-face-smile-wink"></i>
+                <h2>ENJOY</h2>
+                <p>Fiberglass finish durability and custom integrated porches designed for low-maintenance living.</p>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="row f-grid">
             <div class="f-col">
-                <img src="White.png" alt="Relax Outback" style="height: 60px; margin-bottom:30px;">
-                <p style="opacity:0.4; font-size:0.9rem;">IA Specialist Contractors for in-ground fiberglass placements and all-season outdoor living environments.</p>
+                <img src="White.png" alt="Relax Outback" style="height: 60px; margin-bottom: 25px;">
+                <p style="opacity:0.4; font-size: 0.9rem; line-height: 2;">Local specialists for premium fiberglass pools, site finishes, and custom living architecture.</p>
             </div>
-            <div class="f-col"><h4>SOLUTIONS</h4><ul><li>Fiberglass Group</li><li>Cedar Division</li><li>Hardscape Logic</li><li>Clean Up Finishing</li></ul></div>
-            <div class="f-col"><h4>LOCAL FOCUS</h4><ul><li>Bettendorf, IA</li><li>Davenport, IA</li><li>Moline, IL</li><li>Rock Island, IL</li></ul></div>
-            <div class="f-col"><h4>SECURE SPOT</h4><button class="cta-btn" style="width:100%; border-color:#fff; color:#fff;">Register Interest</button></div>
+            <div class="f-col"><h4>SERVICES</h4><ul><li>Fiberglass Install</li><li>Custom Decking</li><li>Porch Engineering</li><li>Soil Logic Mapping</li></ul></div>
+            <div class="f-col"><h4>FOCUS AREA</h4><ul><li>Bettendorf, IA</li><li>Davenport, IA</li><li>Moline, IL</li><li>Rock Island, IL</li></ul></div>
+            <div class="f-col"><h4>START BUILDS</h4><button class="cta-btn" style="width:100%; border-color: #fff; color: #fff; background: transparent;">Request Site Tour</button></div>
         </div>
         <div class="row f-bottom">
-            <span>&copy; 2025 Relax Outback Group | Preferred IA Contractors</span>
-            <span>Design: Masterwork Living</span>
+            <span>&copy; 2025 Relax Outback Group | Designated Iowa Certified #0XXX-91</span>
+            <span>Quad Cities Best Pool Group</span>
         </div>
     </footer>
 
     <script>
-        // Reveal triggering logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // LEADS FORM: 100% SPECIFIC TO REQUEST (HEADER FIXED ON TOP)
-        let wizStepNum = 1;
-        function nextWiz() {
-            const h = document.getElementById('vizHdr');
-            const wrap = document.getElementById('vizInteraction');
-            const grid = document.getElementById('vizGrid');
-            const nTxt = document.getElementById('vizId');
-            const bTxt = document.getElementById('btnLbl');
+        // THE FIXED LEAD FORM SCRIPT - HEADER LOCKED TO TOP
+        let sTally = 1;
+        function nx() {
+            const h = document.getElementById('vHdr');
+            const g = document.getElementById('vGrid');
+            const id = document.getElementById('vID');
+            const b = document.getElementById('vB');
+            const box = document.getElementById('vContent');
 
-            if(wizStepNum >= 3) {
-                alert("Consultation Logged. An outback expert will contact you today.");
+            if(sTally >= 3) {
+                alert("Expert Review Triggered! Relax Outback will call with Quote data soon.");
                 location.reload(); return;
             }
-            
-            wizStepNum++;
-            nTxt.innerText = "0" + wizStepNum;
-            
-            // Premium animation fade-out
-            wrap.style.opacity = '0';
+
+            sTally++;
+            id.innerText = "0" + sTally;
+
+            // Fade box during data change
+            box.style.opacity = 0;
+
             setTimeout(() => {
-                if(wizStepNum === 2) {
+                if(sTally === 2) {
                     h.innerText = "Tell Us How We Can Help?";
-                    grid.innerHTML = `
-                        <div class="option active" onclick="sel(this)">Get a Quote</div>
-                        <div class="option" onclick="sel(this)">Request a Consultation</div>
+                    g.innerHTML = `
+                        <div class="option active" onclick="ch(this)">Get a Quote</div>
+                        <div class="option" onclick="ch(this)">Request a Consultation</div>
                     `;
-                } else if(wizStepNum === 3) {
-                    h.innerText = "Who should we contact?";
-                    grid.className = "field-group";
-                    grid.innerHTML = `
-                        <input type="text" placeholder="Full Name*" class="field">
-                        <input type="email" placeholder="Best Email Address*" class="field">
+                } else if(sTally === 3) {
+                    h.innerText = "Perfect. Who should we contact?";
+                    g.className = "input-wrap"; // Update from grid to input styling
+                    g.innerHTML = `
+                        <input type="text" placeholder="Full Name*" class="fld">
+                        <input type="email" placeholder="Best Email Address*" class="fld">
                     `;
-                    bTxt.innerText = "SUBMIT";
-                    document.getElementById('btnIcon').className = "fas fa-paper-plane";
+                    b.innerText = "SUBMIT";
                 }
-                // Fade-in updated content
-                wrap.style.opacity = '1';
-                wrap.style.transition = 'opacity 0.4s ease';
+                box.style.opacity = 1;
+                box.style.transition = 'opacity 0.4s ease';
             }, 300);
         }
 
-        function sel(el) {
+        function ch(el) {
             el.parentNode.querySelectorAll('.option').forEach(o => o.classList.remove('active'));
             el.classList.add('active');
         }
 
-        // SERVICE TABS DATA
-        const tabList = [
-            { h: "Fiberglass Pool Specialists", d: "Porcelain-smooth finishes and lifetime chemical savings. We execute the layout and final finish for Quad Cities landscapes.", i: "https://images.unsplash.com/photo-1574241088497-7f97576a0d61?auto=format&fit=crop&q=80&w=1000"},
-            { h: "Iowa Deck Engineering", d: "Wood or high-density composite decking. Every line follows the unique footprint of your site placement perfectly.", i: "https://images.unsplash.com/photo-1591825200241-8e40fca44a67?auto=format&fit=crop&q=80&w=1000"},
-            { h: "Patio Shading", d: "Extend the late August pool season with architectural porch structures and seasonal sun shielding design.", i: "https://images.unsplash.com/photo-1621619856624-42fd193a0661?auto=format&fit=crop&q=80&w=1000"}
+        // TABS SCRIPT
+        const tList = [
+            { h: "Fiberglass Pool Specialists", s: "Better durability. Clean finishes.", d: "World class fiberglass pool installations sited specifically for the Iowa landscape. Lower chemical load and stain-resistant surfacing.", i: "https://images.unsplash.com/photo-1574241088497-7f97576a0d61?auto=format&fit=crop&w=1200"},
+            { h: "Site Alignment Carpentry", s: "Custom decks. Precise footprint.", d: "Using composite polymers or Western Red Cedar to engineer the perfect transition from water to house for families across the QCA.", i: "https://images.unsplash.com/photo-1591825200241-8e40fca44a67?auto=format&fit=crop&w=1200"},
+            { h: "The Covered Sanctuary", s: "Seasonal protection design.", d: "Iowa summers extend longer into October with the right architectural overhang. Cedar porches built to handle Iowa seasons while shading your lifestyle.", i: "https://images.unsplash.com/photo-1621619856624-42fd193a0661?auto=format&fit=crop&w=1200"}
         ];
 
-        function tabSwap(idx, el) {
-            document.querySelectorAll('.tab-trigger').forEach(t => t.classList.remove('active'));
-            el.classList.add('active');
-            const cont = document.getElementById('tabContent');
-            cont.style.opacity = 0.5;
+        function tabCh(idx, btn) {
+            const tabs = document.querySelectorAll('.tab-trigger');
+            tabs.forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            const main = document.getElementById('tContent');
+            main.style.opacity = 0.5;
             setTimeout(() => {
-                document.getElementById('tabHead').innerText = tabList[idx].h;
-                document.getElementById('tabDesc').innerText = tabList[idx].d;
-                document.getElementById('tabImg').style.backgroundImage = `url(${tabList[idx].i})`;
-                cont.style.opacity = 1;
+                document.getElementById('tHead').innerText = tList[idx].h;
+                document.getElementById('tSub').innerText = tList[idx].s;
+                document.getElementById('tDesc').innerText = tList[idx].d;
+                document.getElementById('tImg').style.backgroundImage = `url(${tList[idx].i})`;
+                main.style.opacity = 1;
             }, 300);
         }
     </script>
